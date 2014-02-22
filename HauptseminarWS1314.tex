@@ -221,9 +221,27 @@ In this chapter, we present the basics
 	\]
 	with $\alpha_i > 0$.
 	
-	An important contribution of the authors is the proof that certain assumptions on the network
-	structure actually imply a Dirichlet distribution of the parameter prior $P(\theta^m|m)$.
-	For the complete proof, we refer to [ref]
+	An important contribution of the authors is the proof that certain assumptions actually 
+	imply a Dirichlet distribution of the parameter prior $P(\theta^m|m)$.
+	The complete proof, as well as detailed information on these assumptions, is given in [ref].
+	The following section shows two key concepts [[ bessere formulierung ]]
+	
+	\textbf{Markov equivalence:}
+	Two models $m_1$ and $m_2$ for a set of random variables $X$ are called \textit{markov equivalent},
+	if they encode the same conditional independence relation (?) of $X$. For example, in the case of
+	$X=\{X_1,X_2,X_3\}$, the models $X_1 \rightarrow X_2 \rightarrow X_3$,
+	$X_1 \leftarrow X_2 \leftarrow X_3$ and $X_1 \leftarrow X_2 \rightarrow X_3$ are 
+	markov equivalent. A special set of markov equivalent models, is the set of
+	complete models for a set of random variables $X$. In a complete model, every $X_i$ has either an
+	incoming or outgoing edge to every other $X_j$.
+	
+	\textbf{Distribution equivalence:}
+	bla bla bla
+	
+	Dirchichlet distribution for complete model
+	
+	\textbf{Parameter modularity:}
+	bla bla bla
 	
 	\subsection{Computation of the marginal likelihood}
 	As seen in the previous section, the model prior is 
