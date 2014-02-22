@@ -94,25 +94,8 @@ In this chapter, we present the basics
 	conditional probability distribution of the random variable $X_i$ under its parents $Pa_i$.
 	This would result in $P(X_i|Pa_i)$. ?????
 	
-	The authors of [ref] considered discrete random variables for $X$, which means	every $X_i$ has a
-	finite number of	states $r_i$. We use the notation $x_i^k$ if the random variable $X_i$ is in state $k$
-	with $k = 1...r_i$. Since every $X_i$ has a finite number of parents $Pa_i$, there exists
-	a finite amount of possible combinations for the parents states $q_i=\prod_{X_m \in Pa_i} r_m$.
-	We denote a specific configuration $j$ of $Pa_i$ with $pa_i^j$ and $j=1...q_i$. In addition
-	to discrete random variables, the authors also assumed that the state of $Xi$ with a specific
-	parent state combination $pa_i^j$ is multinomial distributed with a parameter vector $\theta_{ij}$.
-	
-	This simplifies the construction and inference in the Bayesian network,	because the probability
-  distribution for each node can now be stored as a conditional probability table (CPT). In this CPT
-	exists a parameter vector $\theta_{ij}$ for every random variable and every possible parent state
-	combination. To denote the probability for a state $k$ of $X_i$ with parent state $pa_i^j$, we
-	use the notation $\theta_{ijk}$. Since the states of $X_i$ are multinomial distributed it is clear
-	that
-	\[
-		\sum_{k=1}^{r_i} \theta_{ijk} = 1
-	\]
 	Figure[ref] shows a simple Bayesian network with three binary random variables, and
-	the CPT for $X_3$.
+	the CPT for $X_3$.	
 	 
 	\subsection{Dirichlet probability distribution}
 	The Dirichlet distribution is a multivariate continuous probability distribution, which depend on a
@@ -147,9 +130,27 @@ In this chapter, we present the basics
 	the authors of [ref]	proposed a Bayesian approach 
 	and introduced the random variable $m$. It has the states $m_1,...m_M$ which correspond to the 
 	possible models of a Bayesian network for the set of random variables $X$.
-	In addition to the model, also the corresponding CPT has to be estimated from $D$. Therefore,
-	the authors introduced the random variable $\theta^m$ which models the belief about a CPT for
-	the model $m$.
+	
+	\subsection{Assumption}
+	The authors of [ref] considered discrete random variables for $X$, which means	every $X_i$ has a
+	finite number of	states $r_i$. We use the notation $x_i^k$ if the random variable $X_i$ is in state $k$
+	with $k = 1...r_i$. Since every $X_i$ has a finite number of parents $Pa_i$, there exists
+	a finite amount of possible combinations for the parents states $q_i=\prod_{X_m \in Pa_i} r_m$.
+	We denote a specific configuration $j$ of $Pa_i$ with $pa_i^j$ and $j=1...q_i$. 
+	
+	In addition	to discrete random variables, the authors also assumed that the state of $X_i$ with a specific
+	parent state combination $pa_i^j$ is multinomial distributed with a parameter vector $\theta_{ij}$.
+	
+	This simplifies the construction and inference in the Bayesian network,	because the probability
+  distribution for each node can now be stored as a conditional probability table (CPT). In this CPT
+	exists a parameter vector $\theta_{ij}$ for every random variable and every possible parent state
+	combination. To denote the probability for a state $k$ of $X_i$ with parent state $pa_i^j$, we
+	use the notation $\theta_{ijk}$. Since the states of $X_i$ are multinomial distributed it is clear
+	that
+	\[
+		\sum_{k=1}^{r_i} \theta_{ijk} = 1
+	\]
+	In the following sections we refer to the full set of parameters as $\theta^m$ for a specific.	
 	
 	\subsection{Bayesian approach}
 	In order to find the optimal model $m$ for an observation $D$, one has to maximize the posterior of $m$
@@ -201,7 +202,7 @@ In this chapter, we present the basics
 	refer to the original paper [ref].
 	
 	\subsection{Parameter prior}
-	Another important choice is the prior distribution for the parameters $P(\theta^m)$. To simplify
+	Another important choice is the prior distribution for the parameters $P(\theta^m|m)$. To simplify
 	the computation the authors assumed parameter independence, which means that the joint probability
 	distribution can be computed with
 	\[
@@ -210,8 +211,20 @@ In this chapter, we present the basics
 	The parameter independence also holds for the posterior $P(\theta_{ij}|D,m)$, which means
 	that each $\theta_{ij}$ can be updated individually.
 	
-	As mentioned before, a common choice in Bayesian probability theory is to use the conjugated prior
-
+	As mentioned before, a common choice in Bayesian probability theory for unknown parameter distributions
+	is to use the conjugated prior distribution of the likelihood.
+	Since the authors assumed a multinomial distribution
+	for $X_i$, the likelihood $P(D|\theta_{ij},m)$ is also multinomial distributed, and hence the
+	conjugated prior would be the Dirichlet distribution
+	\[
+		P(\theta_{ij}|m) = Dir(\theta_{ij}|\alpha)
+	\]
+	with $\alpha_i > 0$.
+	
+	An important contribution of the authors is the proof that certain assumptions on the network
+	structure actually imply a Dirichlet distribution of the parameter prior $P(\theta^m|m)$.
+	For the complete proof, we refer to [ref]
+	
 	\subsection{Computation of the marginal likelihood}
 	As seen in the previous section, the model prior is 
 	
