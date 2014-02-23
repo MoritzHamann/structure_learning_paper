@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.17)  22 FEB 2014 22:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.17)  23 FEB 2014 10:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,33 +391,33 @@ R[]; m\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R[
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 279.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 280.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 279.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 280.
 
-Underfull \hbox (badness 5288) in paragraph at lines 281--284
+Underfull \hbox (badness 5288) in paragraph at lines 282--285
 \OT1/ptm/m/n/10 Send ques-tions about these elec-tronic tem-plates to
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 287.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 288.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 287.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 288.
  [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 346.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 347.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 394--396
+Underfull \hbox (badness 1748) in paragraph at lines 395--397
 []\OT1/ptm/m/n/10 For those us-ing the \OT1/ptm/b/n/10 L[]T[]X \OT1/ptm/m/n/10 
 style file, sim-ply change
  []
@@ -428,17 +428,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [4]
 
 Package natbib Warning: Citation `langley00' on page 5 undefined on input line 
-465.
+466.
 
 
 Package natbib Warning: Citation `anonymous' on page 5 undefined on input line 
-471.
+472.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 499--507
+Underfull \hbox (badness 1796) in paragraph at lines 500--508
 []\OT1/ptm/m/n/10 The pa-per ab-stract should be-gin in the left col-umn,
  []
 
@@ -446,7 +446,7 @@ Underfull \hbox (badness 1796) in paragraph at lines 499--507
 File: icml_numpapers.pdf Graphic file (type pdf)
 
 <use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 550.
+Package pdftex.def Info: icml_numpapers.pdf used on input line 551.
 (pdftex.def)             Requested size: 234.8775pt x 196.12468pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -457,81 +457,81 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [6 <./icml_numpapers.pdf>]
 
 Package natbib Warning: Citation `Samuel59' on page 7 undefined on input line 6
-70.
+71.
 
 
 Package natbib Warning: Citation `Samuel59' on page 7 undefined on input line 6
-72.
+73.
 
 
 Package natbib Warning: Citation `kearns89' on page 7 undefined on input line 6
-73.
+74.
 
 
 Package natbib Warning: Citation `Samuel59' on page 7 undefined on input line 6
-73.
+74.
 
 
 Package natbib Warning: Citation `mitchell80' on page 7 undefined on input line
- 673.
+ 674.
 
 
 Package natbib Warning: Citation `MachineLearningI' on page 7 undefined on inpu
-t line 675.
+t line 676.
 
 
 Package natbib Warning: Citation `Samuel59' on page 7 undefined on input line 6
-86.
+87.
 
 
 Package natbib Warning: Citation `langley00' on page 7 undefined on input line 
-686.
+687.
 
 
 Package natbib Warning: Citation `Newell81' on page 7 undefined on input line 6
-86.
+87.
 
 
 Package natbib Warning: Citation `DudaHart2nd' on page 7 undefined on input lin
-e 686.
+e 687.
 
 
 Package natbib Warning: Citation `MachineLearningI' on page 7 undefined on inpu
-t line 686.
+t line 687.
 
 
 Package natbib Warning: Citation `mitchell80' on page 7 undefined on input line
- 687.
+ 688.
 
 
 Package natbib Warning: Citation `kearns89' on page 7 undefined on input line 6
-87.
+88.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-Package natbib Warning: Citation `langley00' undefined on input line 724.
+Package natbib Warning: Citation `langley00' undefined on input line 725.
 
 No file HauptseminarWS1314.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 729.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 730.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 729.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 730.
  (./HauptseminarWS1314.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 729.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 729.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 730.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 730.
 Package rerunfilecheck Info: File `HauptseminarWS1314.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 729.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 730.
  ) 
 Here is how much of TeX's memory you used:
  6375 strings out of 494979
  91783 string characters out of 6179170
- 181734 words of memory out of 5000000
+ 180734 words of memory out of 5000000
  9457 multiletter control sequences out of 15000+600000
  33012 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -554,7 +554,7 @@ pe1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on HauptseminarWS1314.pdf (7 pages, 222666 bytes).
+Output written on HauptseminarWS1314.pdf (7 pages, 222739 bytes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams

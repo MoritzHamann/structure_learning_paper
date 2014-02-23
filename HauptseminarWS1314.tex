@@ -231,9 +231,10 @@ In this chapter, we present the basics
 	if they encode the same conditional independence relation (?) of $X$. For example, in the case of
 	$X=\{X_1,X_2,X_3\}$, the models $X_1 \rightarrow X_2 \rightarrow X_3$,
 	$X_1 \leftarrow X_2 \leftarrow X_3$ and $X_1 \leftarrow X_2 \rightarrow X_3$ are 
-	markov equivalent. A special set of markov equivalent models, is the set of
-	complete models for a set of random variables $X$. In a complete model, every $X_i$ has either an
-	incoming or outgoing edge to every other $X_j$.
+	markov equivalent, since they all encode that $X_1$ and $X_3$ are independent, given $X_2$.
+	As shown by the authors, the set of complete models for $X$ is also markov equivalent. 
+	A complete model is a DAG in which every $X_i$ has either an 	incoming or outgoing edge 
+	to every other $X_j$.
 	
 	\textbf{Distribution equivalence:}
 	bla bla bla
