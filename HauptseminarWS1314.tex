@@ -68,7 +68,7 @@
 ]
 
 \begin{abstract} 
-Super cool abstract
+	In this paper we present the main
 \end{abstract} 
 
 
@@ -83,7 +83,7 @@ warum structure learning - bayesian approach - vorteile fuer sample likelihood
 anderes paper gleicher author - neue papers researchen
 
 \section{Basics}
-In this chapter, we present the basics
+
 
 	\subsection{Bayesian network}
 	A Bayesian network (sometimes also called a Bayes or belief network) is a probabilistic graphical model
@@ -94,12 +94,9 @@ In this chapter, we present the basics
 	conditional probability distribution of the random variable $X_i$ under its parents $Pa_i$.
 	This would result in $P(X_i|Pa_i)$. ?????
 	
-	Figure[ref] shows a simple Bayesian network with three binary random variables, and
-	the CPT for $X_3$.	
-	 
 	\subsection{Dirichlet probability distribution}
-	The Dirichlet distribution is a multivariate continuous probability distribution, which depend on a
-	vector $\alpha$ with positive entries. It is defined as
+	The Dirichlet distribution is a multivariate continuous probability distribution, which depends on a
+	hyperparameter vector $\alpha$ with positive entries. It is defined as
 	\[
 		Dir(x_1,...,x_m|\alpha_1, ..., \alpha_{m})=\frac{1}{B(\alpha)}\prod_{i=1}^m x_i^{\alpha_i -1}
 	\]
@@ -109,7 +106,16 @@ In this chapter, we present the basics
 	\]
 	with the Gamma function $\Gamma(x)$. Since $B(\alpha)$ is the multinomial extension of the Beta function,
 	the Dirichlet distribution can be seen as the	multivariate generalization of the Beta distribution.
-	[[ Note that equal a is uniform distribution and what ai stands for, and equivalent sample size + ref]]
+	
+	The components of the hyperparameter $\alpha$ directly correspond to the components of $x$ determine
+	the expected values for $x$. In the special case of $\alpha_i = 1 \; \forall i$, the Dirichlet distribution
+	is actually the multidimensional uniform distribution. The variance is given by
+	\[
+		Var[x_i] = \frac{\alpha_i(\alpha_*-\alpha_i)}{\alpha_*^2(\alpha_* + 1)}
+	\]
+	where $\alpha_* = \sum_i \alpha_i$ which is in context of Bayesian probability theory sometimes
+	called the \textit{equivalent sample size}. Increasing this equivalent sample size decreases the
+	variance of $x$.
 	
 	The Dirichlet distribution is also the conjugated prior of the multinomial distribution.
 	Therefore, it is often used in Bayesian probability theory to model the belief $P(\mu)$ about the
@@ -248,13 +254,24 @@ In this chapter, we present the basics
 	The assumption of \textit{parameter modularity} implies that $P(\theta_{ij}|m_1) = P(\theta_{ij}|m_2)$
 	if the random variable $X_i$ has the same parents in the model $m_1$ and $m_2$. [[genauer?]]
 	
-	The authors argued that if two models $m_1,m_2$ are distribution equivalent, it is unlikely that data can
-	discriminate them. Therefore they assumed $P(D|m_1)=P(D|m_2)$ and called this
+	Furthermore, the authors argued that if two models $m_1,m_2$ are distribution equivalent,
+	it is unlikely that data can	discriminate them. Therefore they assumed $P(D|m_1)=P(D|m_2)$ and called this
 	property \textit{likelihood equivalence}.
+	
 	Under the assumption of likelihood equivalence, and	parameter independence, the authors were able to
 	show that the parameters of every complete model have to be Dirichlet distributed. Together we
 	the assumption of parameter modularity, this implies a Dirichlet distribution even for non-complete
 	models. [[ man kann immer complete model construieren in dem parents wie im incomplete sind ]]
+	The hyperparameter $\alpha$ for the prior distribution is restricted and can be computed with
+	\[
+		\alpha_{ijk} = \alpha_* \cdot P(x_i^k, pa_i^j|m_c)
+	\]
+	where $P(x_i^k,pa_i^j|m_c)$ is computed from the observed data $D$ and is the joint probability
+	of $X_i$ in state $k$ with parent configuration $j$ for
+	an arbitrary complete model $m_c$. The authors called $\alpha_*$
+	the \textit{equivalent sample size} which can be chosen by the user. Increasing $\alpha_*$ means
+	increasing the sum $\sum_{k=1}^{r_i} \alpha_{ijk}$, which decreases the variance. Therefore, the
+	equivalent sample size can be interpreted as a level of confidence about the prior distribution.
 	
 	\subsection{Computation of the marginal likelihood}
 	As shown in section [ref] the computation of the model posterior distribution $P(m|D)$ depends on
@@ -279,20 +296,33 @@ In this chapter, we present the basics
   of times the random variable $X_i$ was observed in state $k$ with parent configuration $j$, and
   $N_{ij} = \sum_{k=1}^{r_i}$. 
 
-\section{Heuristics}
-	asdf
+\section{Search methods}
+	Section [ref] addressed the question how to find the posterior probability distribution of the
+	network structure. Assumption of Dirichlet prior for the parameters and multinomial distributed
+	random variables also allowed the efficient closed form solution for the marginal likelihood.
+	
+	A remaining problem is the number of models. As mentioned earlier, the amount of possible
+	models for a set of $n$ random	variables grows super exponentially with $n$. As an example,
+	table [ref] show the number of models up until $n=6$. If the goal is to find the
+	most likely model instead of the whole probability distribution, a heuristic search algorithm
+	can be used. The author suggested a score method, which allows an efficient assessment of the
+	model, together with the greedy hill climbing algorithm to find a model that
+	maximizes this score.
+	
 	\begin{table}[t]
 	\caption{Number of possible DAG structures for a network with n nodes}
 	\begin{center}
 		\begin{small}
 			\begin{sc}
-				\begin{tabular}{lcccccc}
+				\begin{tabular}{l|c|c|c|c|c|c}
 					\hline
-					%\abovespace
-					No. of nodes    & 1 & 2 & 3 & 4 & 5 & 6\\
+					\abovespace
+					\belowspace
+					n & 1 & 2 & 3 & 4 & 5 & 6\\
 					\hline
-					%\belowspace
-					No. of models   & 1 & 3 & 25 & 543 & 29281 & 3781503\\
+					\abovespace
+					\belowspace
+					No. of models & 1 & 3 & 25 & 543 & 29281 & 3781503\\
 					\hline
 				\end{tabular}
 			\end{sc}
@@ -301,175 +331,90 @@ In this chapter, we present the basics
 	\vskip -0.1in
 	\end{table}
 	
-
 	\subsection{Score methods}
+	In order to use a heuristic search method, a function has to be defined,
+	which maps a graph $G$	together with the observed data $D$ to a real valued number. 
+	In the reminder of this section we will refer to this function as the score $S(m,D)$
+	of a model. Naturally, this score should assess the model according to the model posterior defined
+	in section [ref]. 
+	
+	An other preferable property of t [[ factorable score ]]
+	This is, if the score function for the model can be divided into the product of local scores for each
+	random variable
+	\[
+		S(m,D) = \prod_{i=1}^n S(X_i, Pa_i, d)
+	\]
+	where $d$ is the data $D$ restricted to $X_i$ and its parents. [[ efficient score evaluation? ]].
+	A possible score is given with the numerator of the posterior distribution $P(m|D)$, together with
+	the closed form solution of the marginal likelihood (eqn. [ref]). In the literature this score
+	is called the \textit{BDe-score} (Bayesian Dirichlet equivalent)[ref].
+	
 	\subsection{Greedy hill climbing}
-	\subsection{Simulated annealing}
+	The authors suggested the greedy hill climbing algorithm, as s simple heuristic
+	search method to maximize the score. Starting from a initial model, this algorithm
+	tries to improve the model score in each iteration by making small local changes to
+	the model. In specific, it considers every possible arc change, meaning addition, deletion
+	or reversing the direction. Due to the factorable score, the differences in score for a single
+	arc change, can be computed efficiently from the local score of the two involved random variables.
+	
+	A problem with greedy hill climbing, as well as many other heuristic algorithms is the convergence
+	to a local maxima. This means the algorithm terminates with a non-optimal model. One possible
+	solution is the utilization of a set of different initial models, hoping at least one reaches
+	the global maxima. Another possible approach is the method of random restarts. After a (possibly local)
+  maxima is found by greedy hill climbing, this method makes random changes in the resulting model.
+  After that it restart the search method on the perturbed model, in order to escape a local maxima.
+	
+\section{Evaluation results}
+Unfortunately the original paper [ref] did not provide any evaluation result of the BDe score or a
+comparison with other structure learning approaches. The authors presented a small example
+in which they examined the dependencies of factors, which influence the intention of
+US students to attend college. Since only five factors were considered (sex, socioeconomic status,
+IQ, parental encouragement and college plans) they were able to perform a full search over
+all possible models, instead of using a heuristic search method. The found model showed a
+high posterior probability over a wide range for the choice of the equivalent sample size,
+but since no ground truth is available, a qualitative assessment of the example is impossible.
 
-\section{evaluation results}
+Heckermann also co-authored [ref] where the BDe-score was tested in a 36 node alarm network.
+From a ground truth network, they sampled a database with 100 samples, and used these to learn
+the network. They showed, that the quality of the learned model depends on the equivalent
+sample size $\alpha_*$.
 
-\section{relevance}
+Silander et al.[ref MAP] and Liu et al.[ref Bio] evaluated the \textit{BDeu-score}, which is a variant
+of the BDe-score. In the BDeu-score the hyperparameter $\alpha_{ijk}$ do not depend on the joint
+probability, and are distributed equally with
+\[
+	\alpha_{ijk} = \alpha_*\frac{1}{q_ir_i}
+\]
+Their findings suggests that the quality of the learned model with BDeu-score also depends on 
+the choice of the equivalent sample size $\alpha_*$. If $\alpha_*$ is too low, the learned network
+may be too sparse, if $\alpha_*$ is too high, it may be too dense.
 
-\section{conclusion}
+\section{Conclusion}
+In this paper we presented the Bayesian approach by Heckermann[ref] for structure learning of
+Bayesian networks. This approach not only yields the most likely model, but also complete
+probability distribution over all models. This probability distribution can be used to calculate
+the likelihood of a new observation averaged over all models.
 
+Two main problems were addressed by Heckermann, which are the prior distribution for the parameters
+as well as a score method to efficiently employ heuristic search methods. It can be shown, that
+the assumption of parameter independence and likelihood equivalence implies a Dirichlet distribution
+for the parameter prior, which depends on the so called equivalent sample size. Furthermore, the closed
+form solution for the marginal likelihood, together with the model priors, can be used by heuristic
+search method to efficiently find an optimal model. The author called this score the BDe-score.
+
+Unfortunately, no performance comparison or evaluation results of the presented methods were given
+by the author. This is the only part we were missing of the paper.
+A overview about different structure learning approaches, including \textit{BDeu-score,
+Minimum description length, Akaike's information criterion} and \textit{factorized normalized
+maximum likelihood}, are given by Lie et al. [ref Bio]
+
+This paper[ref] as well as the related [ref google] had a great impact on the topic of structure learning.
+On the one hand, the introduced BDe/BDeu-score is today still seen as one of the standard methods of
+structure learning [ref Bio]. On the other hand the paper serves as a complete and detailed introduction
+to the bayesian approach to structure learning.
 
 %--------------------------------------------------------
 
-You can use footnotes\footnote{For the sake of readability, footnotes
-should be complete sentences.} to provide readers with additional
-information about a topic without interrupting the flow of the paper. 
-Indicate footnotes with a number in the text where the point is most
-relevant. Place the footnote in 9~point type at the bottom of the
-column in which it appears. Precede the first footnote in a column
-with a horizontal rule of 0.8~inches.\footnote{Multiple footnotes can
-appear in each column, in the same order as they appear in the text,
-but spread them across columns and pages if possible.}
-
-\begin{figure}[ht]
-\vskip 0.2in
-\begin{center}
-\centerline{\includegraphics[width=\columnwidth]{icml_numpapers}}
-\caption{Historical locations and number of accepted papers for International
-  Machine Learning Conferences (ICML 1993 -- ICML 2008) and
-  International Workshops on Machine Learning (ML 1988 -- ML
-  1992). At the time this figure was produced, the number of
-  accepted papers for ICML 2008 was unknown and instead estimated.}
-\label{icml-historical}
-\end{center}
-\vskip -0.2in
-\end{figure} 
-
-\subsection{Figures}
- 
-You may want to include figures in the paper to help readers visualize
-your approach and your results. Such artwork should be centered,
-legible, and separated from the text. Lines should be dark and at
-least 0.5~points thick for purposes of reproduction, and text should
-not appear on a gray background.
-
-Label all distinct components of each figure. If the figure takes the
-form of a graph, then give a name for each axis and include a legend
-that briefly describes each curve. Do not include a title inside the
-figure; instead, the caption should serve this function.
-
-Number figures sequentially, placing the figure number and caption
-{\it after\/} the graphics, with at least 0.1~inches of space before
-the caption and 0.1~inches after it, as in
-Figure~\ref{icml-historical}.  The figure caption should be set in
-9~point type and centered unless it runs two or more lines, in which
-case it should be flush left.  You may float figures to the top or
-bottom of a column, and you may set wide figures across both columns
-(use the environment {\tt figure*} in \LaTeX), but always place
-two-column figures at the top or bottom of the page.
-
-\subsection{Algorithms}
-
-If you are using \LaTeX, please use the ``algorithm'' and ``algorithmic'' 
-environments to format pseudocode. These require 
-the corresponding stylefiles, algorithm.sty and 
-algorithmic.sty, which are supplied with this package. 
-Algorithm~\ref{alg:example} shows an example. 
-
-\begin{algorithm}[tb]
-   \caption{Bubble Sort}
-   \label{alg:example}
-\begin{algorithmic}
-   \STATE {\bfseries Input:} data $x_i$, size $m$
-   \REPEAT
-   \STATE Initialize $noChange = true$.
-   \FOR{$i=1$ {\bfseries to} $m-1$}
-   \IF{$x_i > x_{i+1}$} 
-   \STATE Swap $x_i$ and $x_{i+1}$
-   \STATE $noChange = false$
-   \ENDIF
-   \ENDFOR
-   \UNTIL{$noChange$ is $true$}
-\end{algorithmic}
-\end{algorithm}
- 
-\subsection{Tables} 
- 
-You may also want to include tables that summarize material. Like 
-figures, these should be centered, legible, and numbered consecutively. 
-However, place the title {\it above\/} the table with at least 
-0.1~inches of space before the title and the same after it, as in 
-Table~\ref{sample-table}. The table title should be set in 9~point 
-type and centered unless it runs two or more lines, in which case it
-should be flush left.
-
-% Note use of \abovespace and \belowspace to get reasonable spacing 
-% above and below tabular lines. 
-
-\begin{table}[t]
-\caption{Classification accuracies for naive Bayes and flexible 
-Bayes on various data sets.}
-\label{sample-table}
-\vskip 0.15in
-\begin{center}
-\begin{small}
-\begin{sc}
-\begin{tabular}{lcccr}
-\hline
-\abovespace\belowspace
-Data set & Naive & Flexible & Better? \\
-\hline
-\abovespace
-Breast    & 95.9$\pm$ 0.2& 96.7$\pm$ 0.2& $\surd$ \\
-Cleveland & 83.3$\pm$ 0.6& 80.0$\pm$ 0.6& $\times$\\
-Glass2    & 61.9$\pm$ 1.4& 83.8$\pm$ 0.7& $\surd$ \\
-Credit    & 74.8$\pm$ 0.5& 78.3$\pm$ 0.6&         \\
-Horse     & 73.3$\pm$ 0.9& 69.7$\pm$ 1.0& $\times$\\
-Meta      & 67.1$\pm$ 0.6& 76.5$\pm$ 0.5& $\surd$ \\
-Pima      & 75.1$\pm$ 0.6& 73.9$\pm$ 0.5&         \\
-\belowspace
-Vehicle   & 44.9$\pm$ 0.6& 61.5$\pm$ 0.4& $\surd$ \\
-\hline
-\end{tabular}
-\end{sc}
-\end{small}
-\end{center}
-\vskip -0.1in
-\end{table}
-
-\subsection{Citations and References} 
-
-Please use APA reference format regardless of your formatter
-or word processor. If you rely on the \LaTeX\/ bibliographic 
-facility, use {\tt natbib.sty} and {\tt icml2014.bst} 
-included in the style-file package to obtain this format.
-
-Citations within the text should include the authors' last names and
-year. If the authors' names are included in the sentence, place only
-the year in parentheses, for example when referencing Arthur Samuel's
-pioneering work \yrcite{Samuel59}. Otherwise place the entire
-reference in parentheses with the authors and year separated by a
-comma \cite{Samuel59}. List multiple references separated by
-semicolons \cite{kearns89,Samuel59,mitchell80}. Use the `et~al.'
-construct only for citations with three or more authors or after
-listing all authors to a publication in an earlier reference \cite{MachineLearningI}.
-
-Authors should cite their own work in the third person
-in the initial version of their paper submitted for blind review.
-Please refer to Section~\ref{author info} for detailed instructions on how to
-cite your own papers.
-
-Use an unnumbered first-level section heading for the references, and 
-use a hanging indent style, with the first line of the reference flush
-against the left margin and subsequent lines indented by 10 points. 
-The references at the end of this document give examples for journal
-articles \cite{Samuel59}, conference publications \cite{langley00}, book chapters \cite{Newell81}, books \cite{DudaHart2nd}, edited volumes \cite{MachineLearningI}, 
-technical reports \cite{mitchell80}, and dissertations \cite{kearns89}. 
-
-Alphabetize references by the surnames of the first authors, with
-single author entries preceding multiple author entries. Order
-references for the same authors by year of publication, with the
-earliest first. Make sure that each reference includes all relevant
-information (e.g., page numbers).
-
-
-% In the unusual situation where you want a paper to appear in the
-% references without citing it in the main text, use \nocite
-\nocite{langley00}
 
 \bibliography{example_paper}
 \bibliographystyle{icml2014}
