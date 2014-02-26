@@ -7,47 +7,50 @@ A bad cross reference---entry "buntine"
 refers to entry "DBLP:conf/uai/1991", which doesn't exist
 A bad cross reference---entry "prior_network"
 refers to entry "DBLP:conf/uai/1994", which doesn't exist
+A bad cross reference---entry "MAP"
+refers to entry "DBLP:conf/uai/2007", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/uai/2007"
 Warning--I didn't find a database entry for "DBLP:conf/uai/1994"
 Warning--I didn't find a database entry for "DBLP:conf/uai/1991"
 You've used 8 entries,
             2773 wiz_defined-function locations,
-            655 strings with 6240 characters,
-and the built_in function-call counts, 3854 in all, are:
-= -- 351
-> -- 192
+            656 strings with 6237 characters,
+and the built_in function-call counts, 4086 in all, are:
+= -- 371
+> -- 200
 < -- 6
-+ -- 65
-- -- 57
-* -- 306
-:= -- 576
-add.period$ -- 28
++ -- 68
+- -- 60
+* -- 324
+:= -- 599
+add.period$ -- 27
 call.type$ -- 8
-change.case$ -- 42
+change.case$ -- 44
 chr.to.int$ -- 8
 cite$ -- 16
-duplicate$ -- 192
-empty$ -- 337
-format.name$ -- 69
-if$ -- 826
+duplicate$ -- 203
+empty$ -- 359
+format.name$ -- 70
+if$ -- 886
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
+missing$ -- 8
 newline$ -- 50
-num.names$ -- 33
-pop$ -- 88
+num.names$ -- 32
+pop$ -- 92
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 36
 quote$ -- 0
-skip$ -- 138
+skip$ -- 152
 stack$ -- 0
-substring$ -- 155
-swap$ -- 27
-text.length$ -- 2
+substring$ -- 183
+swap$ -- 37
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 86
+type$ -- 88
 warning$ -- 0
-while$ -- 36
+while$ -- 38
 width$ -- 0
 write$ -- 115
-(There were 2 error messages)
+(There were 3 error messages)

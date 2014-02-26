@@ -41,12 +41,11 @@ Liu, Zhifa, Malone, Brandon, and Yuan, Changhe.
   selection.
 \newblock \emph{BMC Bioinformatics}, 13\penalty0 (15):\penalty0 1--16, 2012.
 
-\bibitem[Parr \& van~der Gaag(2007)Parr and van~der Gaag]{MAP}
-Parr, Ronald and van~der Gaag, Linda~C. (eds.).
-\newblock \emph{UAI 2007, Proceedings of the Twenty-Third Conference on
-  Uncertainty in Artificial Intelligence, Vancouver, BC, Canada, July 19-22,
-  2007}, 2007. AUAI Press.
-\newblock ISBN 0-9749039-3-0.
+\bibitem[Silander et~al.(2007)Silander, Kontkanen, and Myllym{\"a}ki]{MAP}
+Silander, Tomi, Kontkanen, Petri, and Myllym{\"a}ki, Petri.
+\newblock On sensitivity of the map bayesian network structure to the
+  equivalent sample size parameter.
+\newblock In \emph{UAI}, pp.\  360--367, 2007.
 
 \bibitem[Spiegelhalter et~al.(1993)Spiegelhalter, Dawid, Lauritzen, and
   Cowell]{spiegelhalter}
