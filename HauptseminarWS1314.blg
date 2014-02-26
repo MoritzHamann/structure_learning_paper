@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: HauptseminarWS1314.aux
+The style file: icml2014.bst
+Database file #1: hauptseminar.bib
+A bad cross reference---entry "buntine"
+refers to entry "DBLP:conf/uai/1991", which doesn't exist
+A bad cross reference---entry "prior_network"
+refers to entry "DBLP:conf/uai/1994", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/uai/1994"
+Warning--I didn't find a database entry for "DBLP:conf/uai/1991"
+You've used 8 entries,
+            2773 wiz_defined-function locations,
+            655 strings with 6240 characters,
+and the built_in function-call counts, 3854 in all, are:
+= -- 351
+> -- 192
+< -- 6
++ -- 65
+- -- 57
+* -- 306
+:= -- 576
+add.period$ -- 28
+call.type$ -- 8
+change.case$ -- 42
+chr.to.int$ -- 8
+cite$ -- 16
+duplicate$ -- 192
+empty$ -- 337
+format.name$ -- 69
+if$ -- 826
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 7
+newline$ -- 50
+num.names$ -- 33
+pop$ -- 88
+preamble$ -- 1
+purify$ -- 35
+quote$ -- 0
+skip$ -- 138
+stack$ -- 0
+substring$ -- 155
+swap$ -- 27
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 86
+warning$ -- 0
+while$ -- 36
+width$ -- 0
+write$ -- 115
+(There were 2 error messages)

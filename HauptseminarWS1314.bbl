@@ -1,0 +1,61 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Buntine(1991)]{buntine}
+Buntine, Wray~L.
+\newblock Theory refinement on bayesian networks.
+\newblock In \emph{UAI}, pp.\  52--60, 1991.
+
+\bibitem[Cooper \& Herskovits(1992)Cooper and Herskovits]{cooper}
+Cooper, Gregory~F and Herskovits, Edward.
+\newblock A bayesian method for the induction of probabilistic networks from
+  data.
+\newblock \emph{Machine learning}, 9\penalty0 (4):\penalty0 309--347, 1992.
+
+\bibitem[Heckerman(2002)]{original}
+Heckerman.
+\newblock Graphical models: Structure learning.
+\newblock In \emph{The Handbook of Brain Theory and Neural Networks (2nd
+  edition)}. MIT Press, 2002.
+
+\bibitem[Heckerman et~al.(1994)Heckerman, Geiger, and
+  Chickering]{prior_network}
+Heckerman, David, Geiger, Dan, and Chickering, David~Maxwell.
+\newblock Learning bayesian networks: The combination of knowledge and
+  statistical data.
+\newblock In \emph{UAI}, pp.\  293--301, 1994.
+
+\bibitem[Heckerman et~al.(1995)Heckerman, Geiger, and Chickering]{hcg}
+Heckerman, David, Geiger, Dan, and Chickering, David~M.
+\newblock Learning bayesian networks: The combination of knowledge and
+  statistical data.
+\newblock \emph{Machine learning}, 20\penalty0 (3):\penalty0 197--243, 1995.
+
+\bibitem[Liu et~al.(2012)Liu, Malone, and Yuan]{Bio}
+Liu, Zhifa, Malone, Brandon, and Yuan, Changhe.
+\newblock Empirical evaluation of scoring functions for bayesian network model
+  selection.
+\newblock \emph{BMC Bioinformatics}, 13\penalty0 (15):\penalty0 1--16, 2012.
+
+\bibitem[Parr \& van~der Gaag(2007)Parr and van~der Gaag]{MAP}
+Parr, Ronald and van~der Gaag, Linda~C. (eds.).
+\newblock \emph{UAI 2007, Proceedings of the Twenty-Third Conference on
+  Uncertainty in Artificial Intelligence, Vancouver, BC, Canada, July 19-22,
+  2007}, 2007. AUAI Press.
+\newblock ISBN 0-9749039-3-0.
+
+\bibitem[Spiegelhalter et~al.(1993)Spiegelhalter, Dawid, Lauritzen, and
+  Cowell]{spiegelhalter}
+Spiegelhalter, David~J., Dawid, A.~Philip, Lauritzen, Steffen~L., and Cowell,
+  Robert~G.
+\newblock Bayesian analysis in expert systems.
+\newblock \emph{Statistical Science}, 8\penalty0 (3):\penalty0 219--247, 08
+  1993.
+\newblock \doi{10.1214/ss/1177010888}.
+\newblock URL \url{http://dx.doi.org/10.1214/ss/1177010888}.
+
+\end{thebibliography}
